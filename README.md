@@ -61,6 +61,22 @@ module.exports = {
 };
 ```
 
+## Developers
+
+### CLI options
+
+From the plugin directory:
+
+    $ cd plugins/<pluginName>
+
+Run [ESLint](https://eslint.org/) on project sources:
+
+    $ npm run lint
+
+Run [Mocha](https://mochajs.org) integration tests:
+
+    $ npm run test
+
 ## Contributions
 
 If you fix a bug, or have a code you want to contribute, please send a pull-request with your changes. (Note: Before committing your code please ensure that you are following the [Node.js style guide](https://github.com/felixge/node-style-guide))
