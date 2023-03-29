@@ -6,6 +6,7 @@ Collection of plugins for use in your L³ application.
 
 | Name                        | Description                               |
 |-----------------------------|-------------------------------------------|
+| [AccessControlHeaders](https://github.com/lambda-lambda-lambda/middleware/plugins/AccessControlHeaders) | Middleware to send Access-Control-* headers. |
 | [BasicAuthHandler](https://github.com/lambda-lambda-lambda/middleware/plugins/BasicAuthHandler) | Middleware to prompt Basic Authentication. |
 
 ## Manual installation
