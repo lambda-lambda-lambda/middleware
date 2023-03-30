@@ -10,6 +10,7 @@ Collection of plugins for use in your L³ application.
 | [BasicAuthHandler](https://github.com/lambda-lambda-lambda/middleware/plugins/BasicAuthHandler) | Middleware to prompt [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). |
 | [CloudFrontCacheHeader](https://github.com/lambda-lambda-lambda/middleware/plugins/CloudFrontCacheHeader) | Middleware to send CloudFront `Cache-Control` header. |
 | [ContentNegotiationJson](https://github.com/lambda-lambda-lambda/middleware/plugins/ContentNegotiationJson) | Middleware to enforce JSON [content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept). |
+| [ContentTypeJsonHeader](https://github.com/lambda-lambda-lambda/middleware/plugins/ContentTypeJsonHeader) | Middleware to send JSON `Content-Type` header. |
 
 ## Manual installation
 
