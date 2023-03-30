@@ -10,7 +10,7 @@ const Common     = require('lambda-lambda-lambda/src/router/Common.js');
 const Request    = require('lambda-lambda-lambda/src/router/Request.js');
 const Response   = require('lambda-lambda-lambda/src/router/Response.js');
 const Stack      = require('lambda-lambda-lambda/src/router/Stack.js');
-const middleware = require(`${PLUGIN_ROOT}/src/index.js`);
+const middleware = require(PLUGIN_ROOT);
 
 describe('CloudFrontCacheHeader', function() {
   const stack = new Stack();
