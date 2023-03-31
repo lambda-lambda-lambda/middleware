@@ -22,7 +22,7 @@ router.use(swaggerUIViewer(swaggerJson));
 
 ## Swagger UI
 
-This can accessed by any routes by appending `?swagger-ui` to the URL.
+This can accessed by any routes by appending `?swagger-ui=html` to the URL.
 
 ## References
 
