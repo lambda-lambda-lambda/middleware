@@ -6,15 +6,15 @@ Collection of plugins for use in your L³ application.
 
 | Name                        | Description                               |
 |-----------------------------|-------------------------------------------|
-| [AccessControlHeaders](https://github.com/lambda-lambda-lambda/middleware/plugins/AccessControlHeaders) | Middleware to send `Access-Control-*` headers. |
-| [AppConfigPlugin](https://github.com/lambda-lambda-lambda/middleware/plugins/AppConfigPlugin) | Middleware to store the app configuration. |
-| [BasicAuthHandler](https://github.com/lambda-lambda-lambda/middleware/plugins/BasicAuthHandler) | Middleware to prompt [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). |
-| [CloudFrontCacheHeader](https://github.com/lambda-lambda-lambda/middleware/plugins/CloudFrontCacheHeader) | Middleware to send CloudFront `Cache-Control` header. |
-| [CookieParserPlugin](https://github.com/lambda-lambda-lambda/middleware/plugins/CookieParser) | Middleware to parse/store incoming [HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). |
-| [ContentNegotiationJson](https://github.com/lambda-lambda-lambda/middleware/plugins/ContentNegotiationJson) | Middleware to enforce JSON [content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept). |
-| [ContentTypeJsonHeader](https://github.com/lambda-lambda-lambda/middleware/plugins/ContentTypeJsonHeader) | Middleware to send JSON `Content-Type` header. |
-| [PreflightOptionsHandler](https://github.com/lambda-lambda-lambda/middleware/plugins/PreflightOptionsHandler) | Middleware to handle [preflight requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS). |
-| [SwaggerUIViewer](https://github.com/lambda-lambda-lambda/middleware/plugins/SwaggerUIViewer) | Middleware to generate [Swagger UI](https://swagger.io/tools/swagger-ui) viewer. |
+| [AccessControlHeaders](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/AccessControlHeaders) | Middleware to send `Access-Control-*` headers. |
+| [AppConfigPlugin](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/AppConfigPlugin) | Middleware to store the app configuration. |
+| [BasicAuthHandler](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/BasicAuthHandler) | Middleware to prompt [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). |
+| [CloudFrontCacheHeader](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/CloudFrontCacheHeader) | Middleware to send CloudFront `Cache-Control` header. |
+| [CookieParserPlugin](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/CookieParserPlugin) | Middleware to parse/store incoming [HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). |
+| [ContentNegotiationJson](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/ContentNegotiationJson) | Middleware to enforce JSON [content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept). |
+| [ContentTypeJsonHeader](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/ContentTypeJsonHeader) | Middleware to send JSON `Content-Type` header. |
+| [PreflightOptionsHandler](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/PreflightOptionsHandler) | Middleware to handle [preflight requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS). |
+| [SwaggerUIViewer](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/SwaggerUIViewer) | Middleware to generate [Swagger UI](https://swagger.io/tools/swagger-ui) viewer. |
 
 ## Manual installation
 
