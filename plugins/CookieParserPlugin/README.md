@@ -1,4 +1,4 @@
-# CookieParser
+# CookieParserPlugin
 
 Middleware to parse/store incoming [HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies).
 

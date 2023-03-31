@@ -8,7 +8,7 @@ const cookie = require('cookie');
 module.exports = (req, res, next) => {
   const cookieValue = req.header('Cookie');
 
-  if (cookie && cookieValue) {
+  if (cookieValue) {
     req.plugin('cookies', cookie.parse(cookieValue));
   }
 

@@ -12,7 +12,7 @@ const Response   = require('lambda-lambda-lambda/src/router/Response.js');
 const Stack      = require('lambda-lambda-lambda/src/router/Stack.js');
 const middleware = require(PLUGIN_ROOT);
 
-describe('CookieParser', function() {
+describe('CookieParserPlugin', function() {
   const stack = new Stack();
 
   Common.setFuncName(middleware, 'middleware');
