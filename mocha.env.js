@@ -1,2 +1,3 @@
 // Global shorthand.
-global.PLUGIN_ROOT = process.env.INIT_CWD;
+global.PACKAGE_ROOT = process.cwd();
+global.PLUGIN_ROOT  = process.env.INIT_CWD;

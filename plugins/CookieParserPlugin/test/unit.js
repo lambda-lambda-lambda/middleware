@@ -1,6 +1,6 @@
 'use strict';
 
-const event = require(`${PLUGIN_ROOT}/test/event.json`);
+const event = require(`${PACKAGE_ROOT}/event.json`);
 const chai  = require('chai');
 
 const expect = chai.expect;
@@ -27,6 +27,12 @@ describe('CookieParserPlugin', function() {
 
   stack.middleware = [middleware];
   stack.routes     = route;
+
+  // Define Cookie header.
+  event.Records[0].cf.request.headers['cookie'] = [{
+    key: 'Cookie',
+    value: 'foo=bar; biz=baz'
+  }];
 
   const req = new Request(event.Records[0].cf.request, {});
   const res = new Response({});
