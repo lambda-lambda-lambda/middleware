@@ -8,7 +8,7 @@ See package [README](https://github.com/lambda-lambda-lambda/middleware#manual-i
 
 ### Requires
 
-- AppConfigPlugin
+- [AppConfigPlugin](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/AppConfigPlugin)
 
 ### app.js
 
