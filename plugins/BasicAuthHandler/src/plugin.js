@@ -1,13 +1,16 @@
 'use strict';
 
-const config = require('../config.json');
-
 /**
  * Middleware to prompt Basic Authentication.
+ *
+ * Requires:
+ *   - AppConfigPlugin
  */
 module.exports = (req, res, next) => {
-  const username = config?.basicAuth?.username;
-  const password = config?.basicAuth?.password;
+  const {basicAuth} = req.plugin('config');
+
+  const username = basicAuth?.username;
+  const password = basicAuth?.password;
 
   if (!username || !password) {
     /* istanbul ignore next */

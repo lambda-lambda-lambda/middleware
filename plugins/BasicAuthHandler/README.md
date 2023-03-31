@@ -6,6 +6,10 @@ Middleware to prompt [Basic Authentication](https://en.wikipedia.org/wiki/Basic_
 
 See package [README](https://github.com/lambda-lambda-lambda/middleware#manual-installation) for instructions.
 
+### Requires
+
+- AppConfigPlugin
+
 ## Configuration
 
 Add the following options to your application `config.json`

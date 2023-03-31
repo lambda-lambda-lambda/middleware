@@ -6,6 +6,10 @@ Middleware to send [Access-Control](https://developer.mozilla.org/en-US/docs/Web
 
 See package [README](https://github.com/lambda-lambda-lambda/middleware#manual-installation) for instructions.
 
+### Requires
+
+- AppConfigPlugin
+
 ## References
 
 - [lambda-lambda-lambda](https://github.com/lambda-lambda-lambda)
