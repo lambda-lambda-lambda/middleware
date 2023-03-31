@@ -16,6 +16,19 @@ describe('BasicAuthHandler', function() {
   describe('success', function() {
     const stack = new Stack();
 
+    const dependency = function(req, res, next) {
+      const config = {
+        basicAuth: {
+          username: 'private',
+          password: 'password'
+        }
+      };
+
+      req.plugin('config', config);
+      next();
+    };
+
+    Common.setFuncName(dependency, 'middleware');
     Common.setFuncName(middleware, 'middleware');
 
     const route = function(req, res) {
@@ -24,7 +37,7 @@ describe('BasicAuthHandler', function() {
 
     Common.setFuncName(route, 'route:index');
 
-    stack.middleware = [middleware];
+    stack.middleware = [dependency, middleware];
     stack.routes     = route;
 
     // Define Authorization header.
@@ -56,6 +69,19 @@ describe('BasicAuthHandler', function() {
   describe('failure', function() {
     const stack = new Stack();
 
+    const dependency = function(req, res, next) {
+      const config = {
+        basicAuth: {
+          username: 'private',
+          password: 'password'
+        }
+      };
+
+      req.plugin('config', config);
+      next();
+    };
+
+    Common.setFuncName(dependency, 'middleware');
     Common.setFuncName(middleware, 'middleware');
 
     const route = function(req, res) {
@@ -64,7 +90,7 @@ describe('BasicAuthHandler', function() {
 
     Common.setFuncName(route, 'route:index');
 
-    stack.middleware = [middleware];
+    stack.middleware = [dependency, middleware];
     stack.routes     = route;
 
     // Delete Authorization header.

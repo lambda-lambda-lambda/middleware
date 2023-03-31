@@ -15,6 +15,19 @@ const middleware = require(PLUGIN_ROOT);
 describe('AccessControlHeaders', function() {
   const stack = new Stack();
 
+  const dependency = function(req, res, next) {
+    const config = {
+      origin: {
+        siteUrl: 'http://domain.com'
+      },
+      development: true
+    };
+
+    req.plugin('config', config);
+    next();
+  };
+
+  Common.setFuncName(dependency, 'middleware');
   Common.setFuncName(middleware, 'middleware');
 
   const route = function(req, res) {
@@ -23,7 +36,7 @@ describe('AccessControlHeaders', function() {
 
   Common.setFuncName(route, 'route:index');
 
-  stack.middleware = [middleware];
+  stack.middleware = [dependency, middleware];
   stack.routes     = route;
 
   const req = new Request(event.Records[0].cf.request, {});
