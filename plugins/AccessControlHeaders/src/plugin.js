@@ -3,8 +3,7 @@
 /**
  * Middleware to send Access-Control-* headers.
  *
- * Requires:
- *   - AppConfigPlugin
+ * @requires AppConfigPlugin
  */
 module.exports = (req, res, next) => {
   const config = req.plugin('config');

@@ -3,8 +3,7 @@
 /**
  * Middleware to prompt Basic Authentication.
  *
- * Requires:
- *   - AppConfigPlugin
+ * @requires AppConfigPlugin
  */
 module.exports = (req, res, next) => {
   const {basicAuth} = req.plugin('config');
