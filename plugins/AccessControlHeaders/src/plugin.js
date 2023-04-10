@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
 
   // Set CORS restrictions.
   res.setHeader('Access-Control-Allow-Origin',
-    (config.development === true) ? '*' : config.origin.siteUrl
+    (config.development === true) ? config.origin.devUrl || '*' : config.origin.siteUrl
   );
 
   next();
