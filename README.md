@@ -1,6 +1,6 @@
 # L³ middleware
 
-Collection of plugins for use in your L³ application.
+Collection of plugins for use in your [L³](https://github.com/lambda-lambda-lambda) application.
 
 ## Supported plugins
 
