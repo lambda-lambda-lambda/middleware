@@ -6,10 +6,10 @@ const chai  = require('chai');
 const expect = chai.expect;
 
 // Load modules.
-const Common     = require('lambda-lambda-lambda/src/router/Common.js');
-const Request    = require('lambda-lambda-lambda/src/router/Request.js');
-const Response   = require('lambda-lambda-lambda/src/router/Response.js');
-const Stack      = require('lambda-lambda-lambda/src/router/Stack.js');
+const Common     = require('@lambda-lambda-lambda/router/src/router/Common.js');
+const Request    = require('@lambda-lambda-lambda/router/src/router/Request.js');
+const Response   = require('@lambda-lambda-lambda/router/src/router/Response.js');
+const Stack      = require('@lambda-lambda-lambda/router/src/router/Stack.js');
 const middleware = require(PLUGIN_ROOT);
 
 describe('PreflightOptionsHandler', function() {

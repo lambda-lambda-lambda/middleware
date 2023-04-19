@@ -27,7 +27,7 @@ Copy the [package](https://github.com/lambda-lambda-lambda/middleware) to your a
 
 'use strict';
 
-const Router = require('lambda-lambda-lambda');
+const Router = require('@lambda-lambda-lambda/router');
 
 // Load middleware.
 const plugin1 = require('./middleware/PluginName1');
