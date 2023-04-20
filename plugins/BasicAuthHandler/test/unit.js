@@ -43,7 +43,7 @@ describe('BasicAuthHandler', function() {
     // Define Authorization header.
     event.Records[0].cf.request.headers['authorization'] = [{
       key: 'Authorization',
-      value: 'Basic cHJpdmF0ZTpwYXNzd29yZA=='
+      value: `Basic ${Buffer.from('private:password').toString('base64')}`
     }];
 
     const req = new Request(event.Records[0].cf.request, {});
