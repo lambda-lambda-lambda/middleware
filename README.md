@@ -13,6 +13,7 @@ Collection of plugins for use in your [L³](https://github.com/lambda-lambda-lam
 | [CookieParserPlugin](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/CookieParserPlugin) | Middleware to parse/store incoming [HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). |
 | [ContentNegotiationJson](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/ContentNegotiationJson) | Middleware to enforce JSON [content negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept). |
 | [ContentTypeJsonHeader](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/ContentTypeJsonHeader) | Middleware to send JSON `Content-Type` header. |
+| [GoogleRecaptchaHandler](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/GoogleRecaptchaHandler) | Middleware to validate [Google ReCAPTCHA invisible](https://developers.google.com/recaptcha/docs/invisible) responses. |
 | [PreflightOptionsHandler](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/PreflightOptionsHandler) | Middleware to handle [preflight requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS). |
 | [SwaggerUIViewer](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/SwaggerUIViewer) | Middleware to generate [Swagger UI](https://swagger.io/tools/swagger-ui) viewer. |
 
