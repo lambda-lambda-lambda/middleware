@@ -19,6 +19,8 @@ module.exports = (req, res, next) => {
   const authStr = 'Basic ' + Buffer.from(`${username}:${password}`).toString('base64');
 
   if (req.header('Authorization') !== authStr) {
+    console.warn(`Authorization attempt [${req.uri()}] from ${req.clientIp()}`);
+
     res.setHeader('WWW-Authenticate', 'Basic');
     res.status(401).send('Unauthorized');
   } else {
