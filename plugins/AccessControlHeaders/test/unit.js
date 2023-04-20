@@ -67,7 +67,7 @@ describe('AccessControlHeaders', function() {
     });
   });
 
-    describe('allow-origin (devUrl)', function() {
+  describe('allow-origin (devUrl)', function() {
     const stack = new Stack();
 
     const dependency = function(req, res, next) {
