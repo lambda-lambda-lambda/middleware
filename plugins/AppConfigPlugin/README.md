@@ -9,9 +9,9 @@ See package [README](https://github.com/lambda-lambda-lambda/middleware#manual-i
 ### app.js
 
 ```javascript
-const config = require('./config.json');
+const config = require(`${APP_ROOT}/config.json`);
 
-const appConfigPlugin = require('./middleware/AppConfigPlugin');
+const appConfigPlugin = require(`${APP_ROOT}/middleware/AppConfigPlugin`);
 
 router.use(appConfigPlugin(config));
 ```

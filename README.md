@@ -31,9 +31,9 @@ Copy the [package](https://github.com/lambda-lambda-lambda/middleware) to your a
 const Router = require('@lambda-lambda-lambda/router');
 
 // Load middleware.
-const plugin1 = require('./middleware/PluginName1');
-const plugin2 = require('./middleware/PluginName2');
-const plugin3 = require('./middleware/PluginName3');
+const plugin1 = require(`${APP_ROOT}/middleware/PluginName1`);
+const plugin2 = require(`${APP_ROOT}/middleware/PluginName2`);
+const plugin3 = require(`${APP_ROOT}/middleware/PluginName3`);
 
 /**
  * @see AWS::Serverless::Function
@@ -60,9 +60,9 @@ exports.handler = (event, context, callback) => {
 'use strict';
 
 // Load middleware.
-const plugin1 = require('./middleware/PluginName1');
-const plugin2 = require('./middleware/PluginName2');
-const plugin3 = require('./middleware/PluginName3');
+const plugin1 = require(`${APP_ROOT}/middleware/PluginName1`);
+const plugin2 = require(`${APP_ROOT}/middleware/PluginName2`);
+const plugin3 = require(`${APP_ROOT}/middleware/PluginName3`);
 
 /**
  * @export {Object}

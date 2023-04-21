@@ -13,9 +13,9 @@ See package [README](https://github.com/lambda-lambda-lambda/middleware#manual-i
 ### app.js
 
 ```javascript
-const swaggerJson = require('../swagger.json');
+const swaggerJson = require(`${APP_ROOT}/swagger.json`);
 
-const swaggerUIViewer = require('./middleware/SwaggerUIViewer');
+const swaggerUIViewer = require(`${APP_ROOT}/middleware/SwaggerUIViewer`);
 
 router.use(swaggerUIViewer(swaggerJson));
 ```
