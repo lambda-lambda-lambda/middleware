@@ -17,9 +17,23 @@ Collection of plugins for use in your [L³](https://github.com/lambda-lambda-lam
 | [PreflightOptionsHandler](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/PreflightOptionsHandler) | Middleware to handle [preflight requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS). |
 | [SwaggerUIViewer](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/SwaggerUIViewer) | Middleware to generate [Swagger UI](https://swagger.io/tools/swagger-ui) viewer. |
 
-## Manual installation
+## Installation
+
+### Install using the L³ CLI
+
+    Usage: lambda-lambda-lambda install [options] <PackageName>
+
+    Arguments:
+      PackageName           Package name (Example: BasicAuthHandler)
+
+    Options:
+    -h, --help              display help for command
+
+### Manual installation
 
 Copy the [package](https://github.com/lambda-lambda-lambda/middleware) to your application `/middleware` and include accordingly.
+
+## Usage
 
 ### Globally scoped
 
