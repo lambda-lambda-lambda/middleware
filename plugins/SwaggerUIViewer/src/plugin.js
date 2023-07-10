@@ -3,7 +3,7 @@
 /**
  * Middleware to generate Swagger UI viewer.
  *
- * @@requires AppConfigPlugin
+ * @requires AppConfigPlugin
  */
 module.exports = (swaggerJson) => {
   return (req, res, next) => {
