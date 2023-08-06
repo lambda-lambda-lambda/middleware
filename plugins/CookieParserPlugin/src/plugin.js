@@ -10,6 +10,8 @@ module.exports = (req, res, next) => {
 
   if (cookieValue) {
     req.plugin('cookies', cookie.parse(cookieValue));
+  } else {
+    req.plugin('cookies', {});
   }
 
   next();
