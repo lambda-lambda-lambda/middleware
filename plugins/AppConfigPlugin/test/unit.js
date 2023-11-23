@@ -6,16 +6,16 @@ const chai  = require('chai');
 const expect = chai.expect;
 
 // Load modules.
-const Common     = require('@lambda-lambda-lambda/router/src/router/Common.js');
 const Request    = require('@lambda-lambda-lambda/router/src/router/Request.js');
 const Response   = require('@lambda-lambda-lambda/router/src/router/Response.js');
 const Stack      = require('@lambda-lambda-lambda/router/src/router/Stack.js');
+const Utils      = require('@lambda-lambda-lambda/router/src/router/Utils.js');
 const middleware = require(PLUGIN_ROOT);
 
 describe('AppConfigPlugin', function() {
   const stack = new Stack();
 
-  Common.setFuncName(middleware, 'middleware');
+  Utils.setFuncName(middleware, 'middleware');
 
   const route = function(req, res) {
     const value = req.plugin('config').foo;
@@ -23,7 +23,7 @@ describe('AppConfigPlugin', function() {
     res.status(200).send(value);
   };
 
-  Common.setFuncName(route, 'route:index');
+  Utils.setFuncName(route, 'route:index');
 
   const config = {foo: 'bar'};
 

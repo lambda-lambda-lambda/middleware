@@ -6,10 +6,10 @@ const chai  = require('chai');
 const expect = chai.expect;
 
 // Load modules.
-const Common     = require('@lambda-lambda-lambda/router/src/router/Common.js');
 const Request    = require('@lambda-lambda-lambda/router/src/router/Request.js');
 const Response   = require('@lambda-lambda-lambda/router/src/router/Response.js');
 const Stack      = require('@lambda-lambda-lambda/router/src/router/Stack.js');
+const Utils      = require('@lambda-lambda-lambda/router/src/router/Utils.js');
 const middleware = require(PLUGIN_ROOT);
 
 describe('AccessControlHeaders', function() {
@@ -28,14 +28,14 @@ describe('AccessControlHeaders', function() {
       next();
     };
 
-    Common.setFuncName(dependency, 'middleware');
-    Common.setFuncName(middleware, 'middleware');
+    Utils.setFuncName(dependency, 'middleware');
+    Utils.setFuncName(middleware, 'middleware');
 
     const route = function(req, res) {
       res.status(200).send();
     };
 
-    Common.setFuncName(route, 'route:index');
+    Utils.setFuncName(route, 'route:index');
 
     stack.middleware = [dependency, middleware];
     stack.routes     = route;
@@ -83,14 +83,14 @@ describe('AccessControlHeaders', function() {
       next();
     };
 
-    Common.setFuncName(dependency, 'middleware');
-    Common.setFuncName(middleware, 'middleware');
+    Utils.setFuncName(dependency, 'middleware');
+    Utils.setFuncName(middleware, 'middleware');
 
     const route = function(req, res) {
       res.status(200).send();
     };
 
-    Common.setFuncName(route, 'route:index');
+    Utils.setFuncName(route, 'route:index');
 
     stack.middleware = [dependency, middleware];
     stack.routes     = route;
@@ -137,14 +137,14 @@ describe('AccessControlHeaders', function() {
       next();
     };
 
-    Common.setFuncName(dependency, 'middleware');
-    Common.setFuncName(middleware, 'middleware');
+    Utils.setFuncName(dependency, 'middleware');
+    Utils.setFuncName(middleware, 'middleware');
 
     const route = function(req, res) {
       res.status(200).send();
     };
 
-    Common.setFuncName(route, 'route:index');
+    Utils.setFuncName(route, 'route:index');
 
     stack.middleware = [dependency, middleware];
     stack.routes     = route;
