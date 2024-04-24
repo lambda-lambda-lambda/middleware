@@ -25,27 +25,45 @@ describe('AppConfigPlugin', function() {
 
   Utils.setFuncName(route, 'route:index');
 
-  const config = {foo: 'bar'};
+  describe('loaded', function() {
+    const config = {foo: 'bar'};
 
-  stack.middleware = [middleware(config)];
-  stack.routes     = route;
+    stack.middleware = [middleware(config)];
+    stack.routes     = route;
 
-  const req = new Request(event.Records[0].cf.request, {});
-  const res = new Response({});
+    const req = new Request(event.Records[0].cf.request, {});
+    const res = new Response({});
 
-  stack.exec(req, res);
+    stack.exec(req, res);
 
-  const result = res.data();
+    const result = res.data();
 
-  it('should not return headers', function() {
-    expect(result.headers).to.be.empty;
+    it('should not return headers', function() {
+      expect(result.headers).to.be.empty;
+    });
+
+    it('should return status', function() {
+      expect(result.status).to.equal(200);
+    });
+
+    it('should return body', function() {
+      expect(result.body).to.equal('bar');
+    });
   });
 
-  it('should return status', function() {
-    expect(result.status).to.equal(200);
-  });
+  describe('error', function() {
+    const config = null;
 
-  it('should return body', function() {
-    expect(result.body).to.equal('bar');
+    stack.middleware = [middleware(config)];
+    stack.routes     = route;
+
+    const req = new Request(event.Records[0].cf.request, {});
+    const res = new Response({});
+
+    const result = () => stack.exec(req, res);
+
+    it('should throw Error', function() {
+      expect(result).to.throw(Error, /Missing configuration/);
+    });
   });
 });

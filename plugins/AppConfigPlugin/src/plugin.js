@@ -9,6 +9,8 @@ module.exports = (config) => {
       Object.freeze(config);
 
       req.plugin('config', config);
+    } else {
+      throw Error('Missing configuration');
     }
 
     next();
