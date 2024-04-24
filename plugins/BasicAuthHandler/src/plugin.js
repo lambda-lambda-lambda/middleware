@@ -12,7 +12,6 @@ module.exports = (req, res, next) => {
   const password = basicAuth?.password;
 
   if (!username || !password) {
-    /* istanbul ignore next */
     throw new Error('Missing Basic Auth credentials');
   }
 

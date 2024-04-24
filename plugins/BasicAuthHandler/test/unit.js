@@ -115,4 +115,41 @@ describe('BasicAuthHandler', function() {
       expect(result.body).to.equal('Unauthorized');
     });
   });
+
+  describe('error', function() {
+    const stack = new Stack();
+
+    const dependency = function(req, res, next) {
+      const config = {
+        basicAuth: {
+          username: '',
+          password: ''
+        }
+      };
+
+      req.plugin('config', config);
+      next();
+    };
+
+    Utils.setFuncName(dependency, 'middleware');
+    Utils.setFuncName(middleware, 'middleware');
+
+    const route = function(req, res) {
+      res.status(200).send();
+    };
+
+    Utils.setFuncName(route, 'route:index');
+
+    stack.middleware = [dependency, middleware];
+    stack.routes     = route;
+
+    const req = new Request(event.Records[0].cf.request, {});
+    const res = new Response({});
+
+    const result = () => stack.exec(req, res);
+
+    it ('should throw Error', function() {
+      expect(result).to.throw(Error, /Missing Basic Auth credentials/);
+    });
+  });
 });
