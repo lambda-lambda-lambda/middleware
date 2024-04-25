@@ -30,6 +30,7 @@
     "@lambda-lambda-lambda/router": "latest",
     "@types/aws-lambda": "^8.10.111",
     "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
     "clone": "^2.1.2",
     "cookie": "^0.5.0",
     "eslint": "^7.32.0",
