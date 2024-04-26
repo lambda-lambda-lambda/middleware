@@ -6,10 +6,13 @@ const chai  = require('chai');
 const expect = chai.expect;
 
 // Load modules.
-const Request    = require('@lambda-lambda-lambda/router/src/router/Request.js');
-const Response   = require('@lambda-lambda-lambda/router/src/router/Response.js');
-const Stack      = require('@lambda-lambda-lambda/router/src/router/Stack.js');
-const Utils      = require('@lambda-lambda-lambda/router/src/router/Utils.js');
+const {
+  Request,
+  Response,
+  Stack,
+  Utils
+} = require('@lambda-lambda-lambda/router/exports');
+
 const middleware = require(PLUGIN_ROOT);
 
 describe('PreflightOptionsHandler', function() {
