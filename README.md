@@ -15,6 +15,7 @@ Collection of plugins for use in your [L³](https://github.com/lambda-lambda-lam
 | [ContentTypeJsonHeader](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/ContentTypeJsonHeader) | Middleware to send JSON `Content-Type` header. |
 | [GoogleRecaptchaHandler](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/GoogleRecaptchaHandler) | Middleware to validate [Google ReCAPTCHA invisible](https://developers.google.com/recaptcha/docs/invisible) responses. |
 | [PreflightOptionsHandler](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/PreflightOptionsHandler) | Middleware to handle [preflight requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS). |
+| [SessionPluginExample](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/SessionPluginExample) | Middleware example of validating a session that uses cookies. |
 | [SwaggerUIViewer](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/SwaggerUIViewer) | Middleware to generate [Swagger UI](https://swagger.io/tools/swagger-ui) viewer. |
 
 ## Installation
