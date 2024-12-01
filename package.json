@@ -27,17 +27,17 @@
   "author": "Marc S. Brooks <devel@mbrooks.info> (https://mbrooks.info)",
   "license": "MIT",
   "devDependencies": {
-    "@lambda-lambda-lambda/router": "latest",
-    "@types/aws-lambda": "^8.10.111",
-    "chai": "^4.3.7",
-    "chai-as-promised": "^7.1.1",
+    "@lambda-lambda-lambda/router": "^0.8.5",
+    "@types/aws-lambda": "^8.10.146",
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
     "clone": "^2.1.2",
     "cookie": "^0.5.0",
     "eslint": "^7.32.0",
     "mocha": "^9.2.2",
     "nyc": "^15.1.0",
     "resnap": "^1.0.1",
-    "sinon": "^16.1.1"
+    "sinon": "^16.1.3"
   },
   "engines": {
     "node": ">=18.0.0"
