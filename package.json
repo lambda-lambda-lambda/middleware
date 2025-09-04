@@ -26,9 +26,11 @@
   "homepage": "https://github.com/lambda-lambda-lambda/middleware#readme",
   "author": "Marc S. Brooks <devel@mbrooks.info> (https://mbrooks.info)",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@lambda-lambda-lambda/router": "^0.8.6",
-    "@types/aws-lambda": "^8.10.152",
+    "@types/aws-lambda": "^8.10.152"
+  },
+  "devDependencies": {
     "chai": "^4.5.0",
     "chai-as-promised": "^7.1.2",
     "clone": "^2.1.2",
