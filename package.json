@@ -27,10 +27,12 @@
   "author": "Marc S. Brooks <devel@mbrooks.info> (https://mbrooks.info)",
   "license": "MIT",
   "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.879.0",
     "@lambda-lambda-lambda/router": "^0.8.6",
     "@types/aws-lambda": "^8.10.152"
   },
   "devDependencies": {
+    "aws-sdk-client-mock": "^4.1.0",
     "chai": "^4.5.0",
     "chai-as-promised": "^7.1.2",
     "clone": "^2.1.2",
