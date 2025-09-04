@@ -7,7 +7,7 @@ Collection of plugins for use in your [L³](https://github.com/lambda-lambda-lam
 | Name                        | Description                               |
 |-----------------------------|-------------------------------------------|
 | [AccessControlHeaders](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/AccessControlHeaders) | Middleware to send `Access-Control-*` headers. |
-| [AppConfigPlugin](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/AppConfigPlugin) | Middleware to store the app configuration. |
+| [AppConfigPlugin](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/AppConfigPlugin) | Middleware to support a file-based app configuration. |
 | [BasicAuthHandler](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/BasicAuthHandler) | Middleware to prompt [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). |
 | [CloudFrontCacheHeader](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/CloudFrontCacheHeader) | Middleware to send CloudFront `Cache-Control` header. |
 | [CookieParserPlugin](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/CookieParserPlugin) | Middleware to parse/store incoming [HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). |

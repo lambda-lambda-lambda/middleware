@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Middleware to store the app configuration.
+ * Middleware to support a file-based app configuration.
  */
 module.exports = (config) => {
   return (req, res, next) => {
