@@ -36,7 +36,11 @@ module.exports = (secretName, region = 'us-east-1') => {
     const jsonStr = secretResponse?.SecretString;
 
     if (jsonStr) {
-      req.plugin('secret', JSON.parse(jsonStr));
+      const config = JSON.parse(jsonStr);
+
+      Object.freeze(config);
+
+      req.plugin('secret', config);
     } else {
       throw new RouterError('Invalid AWS Secrets Manager response');
     }
