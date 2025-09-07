@@ -8,10 +8,28 @@ const {RouterError} = require('@lambda-lambda-lambda/router/src/router/Error');
  * Middleware to validate Google ReCAPTCHA invisible responses.
  *
  * @requires AppConfigPlugin
+ * @requires SecretsManagerPlugin // optional alternative
  */
 module.exports = async (req, res, next) => {
-  const {google} = req.plugin('config');
+  let plugin;
 
+  // Load supported plugin.
+  try {
+    plugin = req.plugin('config');
+  } catch (err) {
+    // suppress exception.
+  }
+
+  if (!plugin) {
+    try {
+      plugin = req.plugin('secret');
+    } catch (err) {
+      /* istanbul ignore next */
+      throw new RouterError('Missing supported plugin');
+    }
+  }
+
+  const {google}  = plugin;
   const secretKey = google?.reCaptcha?.secretKey;
 
   if (!secretKey) {

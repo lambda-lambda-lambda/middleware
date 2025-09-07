@@ -9,10 +9,11 @@ See package [README](https://github.com/lambda-lambda-lambda/middleware#manual-i
 ### Requires
 
 - [AppConfigPlugin](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/AppConfigPlugin)
+- [SecretsManagerPlugin](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/AppConfigPlugin) (optional alternative)
 
 ## Configuration
 
-Add the following options to your application `config.json`
+Add the following options to your application `config.json`, or as an alternative you can store the values as [Secrets Manager secret](https://github.com/lambda-lambda-lambda/middleware/blob/master/plugins/SecretsManagerPlugin/README.md#secrets-manager-setup).
 
 ```json
 // .. appName/src/config.json

@@ -26,106 +26,211 @@ afterEach(() => {
 });
 
 describe('GoogleReCaptchaHandler', function() {
-  describe('success', function() {
-    const stack = new Stack();
+  describe('"config" plugin', function() {
+    describe('success', function() {
+      const stack = new Stack();
 
-    const dependency = function(req, res, next) {
-      const config = {
-        google: {
-          reCaptcha: {
-            // https://developers.google.com/recaptcha/docs/faq#id-like-to-run-automated-tests-with-recaptcha.-what-should-i-do
-            secretKey: '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'
+      const dependency = function(req, res, next) {
+        const config = {
+          google: {
+            reCaptcha: {
+              // https://developers.google.com/recaptcha/docs/faq#id-like-to-run-automated-tests-with-recaptcha.-what-should-i-do
+              secretKey: '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'
+            }
           }
-        }
+        };
+
+        req.plugin('config', config);
+        next();
       };
 
-      req.plugin('config', config);
-      next();
-    };
+      Utils.setFuncName(dependency, 'middleware');
+      Utils.setFuncName(middleware, 'middleware');
 
-    Utils.setFuncName(dependency, 'middleware');
-    Utils.setFuncName(middleware, 'middleware');
+      const route = async function(req, res, next) {
+        res.status(200).send();
+      };
 
-    const route = async function(req, res, next) {
-      res.status(200).send();
-    };
+      Utils.setFuncName(route, 'route:index');
 
-    Utils.setFuncName(route, 'route:index');
+      stack.middleware = [dependency, middleware];
+      stack.routes     = route;
 
-    stack.middleware = [dependency, middleware];
-    stack.routes     = route;
+      // Define form POST parameters.
+      event.Records[0].cf.request.method = 'POST';
+      event.Records[0].cf.request.uri    = '/path/to/resource';
+      event.Records[0].cf.request.body   = {
+        data: Buffer.from('g-recaptcha-response=GOOGLE_RESPONSE')
+          .toString('base64')
+      };
 
-    // Define form POST parameters.
-    event.Records[0].cf.request.method = 'POST';
-    event.Records[0].cf.request.uri    = '/path/to/resource';
-    event.Records[0].cf.request.body   = {
-      data: Buffer.from('g-recaptcha-response=GOOGLE_RESPONSE')
-        .toString('base64')
-    };
+      const req = new Request(event.Records[0].cf.request, {});
+      const res = new Response({});
 
-    const req = new Request(event.Records[0].cf.request, {});
-    const res = new Response({});
+      stack.exec(req, res);
 
-    stack.exec(req, res);
+      const result = res.data();
 
-    const result = res.data();
+      it('should not return headers', function() {
+        expect(result.headers).to.be.empty;
+      });
 
-    it('should not return headers', function() {
-      expect(result.headers).to.be.empty;
+      it('should return status', function() {
+        expect(result.status).to.equal(200);
+      });
+
+      it('should not return body', function() {
+        expect(result.body).to.be.undefined;
+      });
     });
 
-    it('should return status', function() {
-      expect(result.status).to.equal(200);
-    });
+    describe('error', function() {
+      const stack = new Stack();
 
-    it('should not return body', function() {
-      expect(result.body).to.be.undefined;
+      const dependency = function(req, res, next) {
+        const config = {
+          google: {
+            reCaptcha: {
+              secretKey: ''
+            }
+          }
+        };
+
+        req.plugin('config', config);
+        next();
+      };
+
+      Utils.setFuncName(dependency, 'middleware');
+      Utils.setFuncName(middleware, 'middleware');
+
+      const route = async function(req, res, next) {
+        res.status(200).send();
+      };
+
+      Utils.setFuncName(route, 'route:index');
+
+      stack.middleware = [dependency, middleware];
+      stack.routes     = route;
+
+      // Define form POST parameters.
+      event.Records[0].cf.request.method = 'POST';
+      event.Records[0].cf.request.uri    = '/path/to/resource';
+      event.Records[0].cf.request.body   = {
+        data: Buffer.from('g-recaptcha-response=GOOGLE_RESPONSE')
+          .toString('base64')
+      };
+
+      const req = new Request(event.Records[0].cf.request, {});
+      const res = new Response({});
+
+      it('should throw RouterError', function() {
+        const result = stack.exec(req, res);
+
+        return expect(result).to.be.rejectedWith(RouterError, /Missing Google API secret key/);
+      });
     });
   });
 
-  describe('error', function() {
+  describe('"secret" plugin', function() {
     const stack = new Stack();
 
-    const dependency = function(req, res, next) {
-      const config = {
-        google: {
-          reCaptcha: {
-            secretKey: ''
+    describe('success', function() {
+      const dependency = function(req, res, next) {
+        const secret = {
+          google: {
+            reCaptcha: {
+              // https://developers.google.com/recaptcha/docs/faq#id-like-to-run-automated-tests-with-recaptcha.-what-should-i-do
+              secretKey: '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'
+            }
           }
-        }
+        };
+
+        req.plugin('secret', secret);
+        next();
       };
 
-      req.plugin('config', config);
-      next();
-    };
+      Utils.setFuncName(dependency, 'middleware');
+      Utils.setFuncName(middleware, 'middleware');
 
-    Utils.setFuncName(dependency, 'middleware');
-    Utils.setFuncName(middleware, 'middleware');
+      const route = async function(req, res, next) {
+        res.status(200).send();
+      };
 
-    const route = async function(req, res, next) {
-      res.status(200).send();
-    };
+      Utils.setFuncName(route, 'route:index');
 
-    Utils.setFuncName(route, 'route:index');
+      stack.middleware = [dependency, middleware];
+      stack.routes     = route;
 
-    stack.middleware = [dependency, middleware];
-    stack.routes     = route;
+      // Define form POST parameters.
+      event.Records[0].cf.request.method = 'POST';
+      event.Records[0].cf.request.uri    = '/path/to/resource';
+      event.Records[0].cf.request.body   = {
+        data: Buffer.from('g-recaptcha-response=GOOGLE_RESPONSE')
+          .toString('base64')
+      };
 
-    // Define form POST parameters.
-    event.Records[0].cf.request.method = 'POST';
-    event.Records[0].cf.request.uri    = '/path/to/resource';
-    event.Records[0].cf.request.body   = {
-      data: Buffer.from('g-recaptcha-response=GOOGLE_RESPONSE')
-        .toString('base64')
-    };
+      const req = new Request(event.Records[0].cf.request, {});
+      const res = new Response({});
 
-    const req = new Request(event.Records[0].cf.request, {});
-    const res = new Response({});
+      stack.exec(req, res);
 
-    it('should throw RouterError', function() {
-      const result = stack.exec(req, res);
+      const result = res.data();
 
-      return expect(result).to.be.rejectedWith(RouterError, /Missing Google API secret key/);
+      it('should not return headers', function() {
+        expect(result.headers).to.be.empty;
+      });
+
+      it('should return status', function() {
+        expect(result.status).to.equal(200);
+      });
+
+      it('should not return body', function() {
+        expect(result.body).to.be.undefined;
+      });
+    });
+
+    describe('error', function() {
+      const dependency = function(req, res, next) {
+        const secret = {
+          google: {
+            reCaptcha: {
+              secretKey: ''
+            }
+          }
+        };
+
+        req.plugin('secret', secret);
+        next();
+      };
+
+      Utils.setFuncName(dependency, 'middleware');
+      Utils.setFuncName(middleware, 'middleware');
+
+      const route = async function(req, res, next) {
+        res.status(200).send();
+      };
+
+      Utils.setFuncName(route, 'route:index');
+
+      stack.middleware = [dependency, middleware];
+      stack.routes     = route;
+
+      // Define form POST parameters.
+      event.Records[0].cf.request.method = 'POST';
+      event.Records[0].cf.request.uri    = '/path/to/resource';
+      event.Records[0].cf.request.body   = {
+        data: Buffer.from('g-recaptcha-response=GOOGLE_RESPONSE')
+          .toString('base64')
+      };
+
+      const req = new Request(event.Records[0].cf.request, {});
+      const res = new Response({});
+
+      it('should throw RouterError', function() {
+        const result = stack.exec(req, res);
+
+        return expect(result).to.be.rejectedWith(RouterError, /Missing Google API secret key/);
+      });
     });
   });
 });
