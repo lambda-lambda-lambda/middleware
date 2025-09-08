@@ -1,6 +1,6 @@
 # L³ middleware
 
-[![](https://img.shields.io/npm/dm/@lambda-lambda-lambda/middleware.svg)](https://www.npmjs.com/package/@lambda-lambda-lambda/middleware) [![Build Status](https://img.shields.io/github/actions/workflow/status/lambda-lambda-lambda/middleware/.github%2Fworkflows%2Fci.yml)](https://github.com/lambda-lambda-lambda/middleware/actions) [![NO AI](https://raw.githubusercontent.com/nuxy/no-ai-badge/master/badge.svg)](https://github.com/nuxy/no-ai-badge)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/lambda-lambda-lambda/middleware/.github%2Fworkflows%2Fci.yml)](https://github.com/lambda-lambda-lambda/middleware/actions) [![NO AI](https://raw.githubusercontent.com/nuxy/no-ai-badge/master/badge.svg)](https://github.com/nuxy/no-ai-badge)
 
 Collection of plugins for use in your [L³](https://github.com/lambda-lambda-lambda) application.
 
