@@ -25,6 +25,47 @@ When [storing a new secret](https://us-east-1.console.aws.amazon.com/secretsmana
 
 See package [README](https://github.com/lambda-lambda-lambda/middleware#manual-installation) for instructions.
 
+### CloudFormation `template.yaml`
+
+The following [Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) need to be configured in order to generate IAM execution policies.
+
+```yaml
+Resources:
+  ..
+
+  LambdaEdgeRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-LambdaEdgeRole'
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          Effect: Allow
+          Principal:
+            Service:
+              - lambda.amazonaws.com
+              - edgelambda.amazonaws.com
+              - cloudfront.amazonaws.com
+              - secretsmanager.amazonaws.com
+          Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  SecretsManagerPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub '${AWS::StackName}-SecretsManagerPolicy'
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          Effect: Allow
+          Action:
+            - secretsmanager:GetSecretValue
+          Resource: !Sub 'arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${AWS::StackName}-<Secret Name>-<String>'
+      Roles:
+        - !Sub '${AWS::StackName}-LambdaEdgeRole'
+```
+
 ### app.js
 
 ```javascript
