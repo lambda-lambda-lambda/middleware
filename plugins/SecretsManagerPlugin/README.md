@@ -63,7 +63,7 @@ Resources:
             - secretsmanager:GetSecretValue
           Resource: !Sub 'arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${AWS::StackName}-<Secret Name>-<String>'
       Roles:
-        - !Sub '${AWS::StackName}-LambdaEdgeRole'
+        - !Ref LambdaEdgeRole
 ```
 
 ### app.js
