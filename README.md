@@ -110,6 +110,16 @@ Run [Mocha](https://mochajs.org) integration tests:
 
     $ npm run test
 
+## AWS changes starting in Node.js 24 (CloudWatch warning)
+
+Going forward, it is recommended that you build your L³ application using `async` handlers in anticipation of the AWS changes below.
+
+> AWS Lambda plans to remove support for callback-based function handlers starting with Node.js 24. You will need to update this function to use an async handler to use Node.js 24 or later. For more information and to provide feedback on this change, see aws/aws-lambda-nodejs-runtime-interface-client#137
+
+While backwards compatibity will be supported for older Node.js releases this support **will eventually be phased out** with the deprecation of `nodejs22.x` (Apr 30, 2027).
+
+See [AWS Node.js Supported Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported) for support information.
+
 ## Contributions
 
 If you fix a bug, or have a code you want to contribute, please send a pull-request with your changes. (Note: Before committing your code please ensure that you are following the [Node.js style guide](https://github.com/felixge/node-style-guide))
